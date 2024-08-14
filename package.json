@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "tsc",
-    "dev:server": "tsx watch server/serve",
+    "dev:server": "tsx watch server",
     "dev:client": "wait-port 3111 && tsx watch client",
     "dev": "run-p dev:* --print-label",
     "start": "node dist/server",

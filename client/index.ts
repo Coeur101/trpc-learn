@@ -1,5 +1,5 @@
 import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
-import { AppRouter } from "../server/serve";
+import { AppRouter } from "../server";
 
 const trpc = createTRPCProxyClient<AppRouter>({
   // tRPC 中的链接与 GraphQL 中的链接类似，它们让我们在发送到服务器之前控制数据流
