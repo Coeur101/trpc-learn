@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { db } from "./db";
 import { publicProcedure, router } from "./trpc";
+import { authorizedProcedure } from "./interceptor";
 // 初始化路由实例
 export default router({
   // 实现各种方法来让客户端调用
@@ -23,5 +24,11 @@ export default router({
     const { input } = opt
     const user = await db.user.create(input)
     return user
+  }),
+  // 使用拦截器的接口 验证权限
+  getAdmin: authorizedProcedure.query(async () => {
+    return {
+      message: "admin的权限"
+    }
   })
 })

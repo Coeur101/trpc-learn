@@ -15,5 +15,9 @@ const main = async () => {
   console.log(users);
   const getUser = await trpc.userById.query("1")
   console.log(getUser);
+  // 验证权限
+  const getAdmin = await trpc.getAdmin.query({ token: 'admin' })
+  console.log(getAdmin)
+
 }
 main().catch(console.error)
